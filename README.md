@@ -17,27 +17,43 @@ First, download the GitHub ZIP to your desktop and extract it.
 
 Run index.html in your favorite browser. At the bottom of the screen, you'll see the various Jasmine test suites (and the results of those tests) displayed:  
 
-![Desktop Screenshot](https://github.com/vincemaling/FE-Web-Dev-Nano-P5/blob/master/images/screenshot%20-%20desktop%20-%20small.png) 
+![Jasmine Results Screenshot](https://github.com/vincemaling/FE-Web-Dev-Nano-P6/blob/master/screenshot/jasmine%20ss.png)  
+
+To fiddle with the results of these tests, you can access the js -> app.js file and make changes to one or more variables or functions that are test. See [Test Suites](#chapter-2) for more details.
 
 Test Suites <a id="chapter-2"></a>
 ----------
-<dl><dt>(1) Neighborhood Selector</dt>
-<dd>I designed the application so that multiple neighborhoods could be loaded and (theoretically) added and removed. By default, three neighborhoods are included: Lindbergh (Atlanta), Shaker Heights (Cleveland), and Cabbagetown (Atlanta). On the desktop version of the application, you can select your neighborhood using the tabs in the top-left. On the mobile version, tapping the neighborhood name drops down a list of neighborhoods to select from.<dd>  
+<dl><dt>(1) RSS Feeds</dt>
+<dd>The RSS Feeds test suite includes three tests/specs:  
+- *are defined*: ensure that the allFeeds object has at least one feed in it
+- *each have a URL*: ensures that each feed in the allFeeds object has a URL defined, and that URL is not empty
+- *each have a name*: ensures that each feed in the allFeeds object has a name defined, and that name is not empty
+</dd>
 
-<dt>(2) Weather Widget</dt>
-<dd>The Weather Widget displays a snapshot of the current weather conditions in the neighborhood you have selected. In the desktop version of the application, you can hover over the widget with your mouse for additional details. The Weather Widget uses the Open Weather API.</dd>  
+<dt>(2) The menu</dt>
+<dd>The menu test suite includes two tests/specs:  
+- *is hidden by default*: checks to be sure the menu id hidden at launch
+- *shows when clicked and hides when clicked again*: executes click events and ensures that the menu shows and hides accordingly
+</dd>
 
-<dt>(3) Dynamic Yelp! Search</dt>
-<dd>The applications will begin to conduct searches against Yelp's database as soon as you start typing. As you type, results will be displayed both in the search result list view, and on the map. Note that in the mobile version of the application, you'll need to use the menu icons in the top-right to toggle between map view and search list view (see #8 below).</dd>
+<dt>(3) Initial Entries</dt>
+<dd>The Initial Entries test suite includes one test/spec  
+- *are available for use*: ensures there is at least one entry in the initial feed to display
+</dd>
 
-<dt>(4) Search List View (Desktop)</dt>
-<dd>As search results populate, they will appear in the search list view on the left-hand side of your screen. The list view includes location names, a Yelp rating, and a typical user review. When you click on an item in the search list view, the map will pan to its location and additional data will be displayed.</dd>
+<dt>(4) New Feed Selection</dt>
+<dd>The New Feed Selection test suite includes two tests/specs:  
+- *takes old content*: ensures existing feed content exists prior to changing the selected feed
+- *and exchanges it for new content*: ensures that after a new feed ios selected, the content displayed is different than the content for the previously selected feed
+</dd>  
+
+Note that the tests/specs in both the Initial Entries and the New Feed Selection suites realy on asynchronous functions (i.e. content is loaded asynchronously from Google, and therefore the tests must be run asynchronously). 
 
 Resources Used <a id="chapter-3"></a>
 ---------
-<dl><dt>Google Maps API</dt>
-<dd>I used the Google Maps API to create the map that serves as the primary application view in both the desktop and mobile version of the application. I wrote custom Knockout JS binding handlers that link the markers on the map (both search results and favorites) to observable arrays.</dd>  
+<dl><dt>Jasmine Documentation</dt>
+<dd>For the bulk of the project, I simply referred to [Jasmine's documentation] (http://jasmine.github.io/2.0/introduction.html)</dd>  
 
-<dt>Yelp! API</dt>
-<dd>Of all the business search APIs I researched, Yelp was my favorite. The Yelp Development Guide recommends creating a server-side script (e.g. in PHP) to handle AJAX calls rather than making calls directly from Javascript, so I wrote a PHP script that the application calls (see the PHP folder in this Github project). I used the Yelp API to retrieve rating, review, and location information about businesses.</dd>
+<dt>HTML Goodies</dt>
+<dd>The following article at HTML Goodies helped me wrap my mind around using Jasmine's asynchronous functionality (i.e. done() function with beforeEach): [HTML Goodies: Jasmine Async] (http://www.htmlgoodies.com/beyond/javascript/stips/using-jasmine-2.0s-new-done-function-to-test-asynchronous-processes.html)</dd>
 
