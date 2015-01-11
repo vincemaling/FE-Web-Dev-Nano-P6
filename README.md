@@ -1,4 +1,4 @@
-Neighborhood Maps Project
+UdaciFeeds Testing Project
 ==================
 #####Udacity FE Web Developer Nanodegree - Project 6#####
 ---
