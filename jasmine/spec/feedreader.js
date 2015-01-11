@@ -96,7 +96,7 @@ $(function() {
             });
         });
         
-        it("should not be empty", function() {                      // Describe the spec's intention
+        it("are available for use", function() {                      // Describe the spec's intention
           expect($('.entry').length).toBeGreaterThan(0);            // Ensure that at least one .entry div exists after the loadFeed(0) function is complete
         });
 
@@ -120,12 +120,12 @@ $(function() {
             });
         });
         
-        it("should take old content", function() {                  // This test ensures there is initial content (against which we will compare the new content)
+        it("takes old content", function() {                  // This test ensures there is initial content (against which we will compare the new content)
           feedDetails[currentFeed] = $('.entry:first').html();      // Grab the HTML content of the initial feed's first entry
           expect(feedDetails[currentFeed]).toBeTruthy();            // Make sure the initial feed's first entry actually has content
         });
         
-        it("and exchange it for new content", function() {                              // Now, let's compare the next feed's content with previous content                    
+        it("and exchanges it for new content", function() {                              // Now, let's compare the next feed's content with previous content                    
           feedDetails[currentFeed] = $('.entry:first').html();                          // Grab the HTML content of the new feed's first array
           expect(feedDetails[currentFeed]).not.toEqual(feedDetails[currentFeed - 1]);   // Make sure the HTML content is different than the previous feed's
         });
